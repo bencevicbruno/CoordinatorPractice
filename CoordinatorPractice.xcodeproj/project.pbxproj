@@ -19,6 +19,9 @@
 		8C9ED362273E84AC007D7509 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9ED361273E84AC007D7509 /* HomeCoordinator.swift */; };
 		8C9ED365273E87D5007D7509 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9ED364273E87D5007D7509 /* MyProfileViewController.swift */; };
 		8C9ED367273E8813007D7509 /* MyProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9ED366273E8813007D7509 /* MyProfileCoordinator.swift */; };
+		8C9ED36B273E8C73007D7509 /* HeaderCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9ED36A273E8C73007D7509 /* HeaderCollectionCell.swift */; };
+		8C9ED36F273EAFFD007D7509 /* ContentCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9ED36E273EAFFD007D7509 /* ContentCollectionCell.swift */; };
+		8C9ED376273EBA9C007D7509 /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9ED375273EBA9C007D7509 /* UICollectionViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		8C9ED361273E84AC007D7509 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		8C9ED364273E87D5007D7509 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		8C9ED366273E8813007D7509 /* MyProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileCoordinator.swift; sourceTree = "<group>"; };
+		8C9ED36A273E8C73007D7509 /* HeaderCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionCell.swift; sourceTree = "<group>"; };
+		8C9ED36E273EAFFD007D7509 /* ContentCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionCell.swift; sourceTree = "<group>"; };
+		8C9ED375273EBA9C007D7509 /* UICollectionViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,7 @@
 		8C9ED341273E7917007D7509 /* CoordinatorPractice */ = {
 			isa = PBXGroup;
 			children = (
+				8C9ED373273EBA86007D7509 /* Extensions */,
 				8C9ED356273E7A22007D7509 /* UI */,
 				8C9ED342273E7917007D7509 /* AppDelegate.swift */,
 				8C9ED35B273E7C80007D7509 /* Main.storyboard */,
@@ -102,6 +109,7 @@
 		8C9ED360273E84A1007D7509 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				8C9ED369273E8C5C007D7509 /* MainCollection */,
 				8C9ED361273E84AC007D7509 /* HomeCoordinator.swift */,
 				8C9ED346273E7917007D7509 /* HomeViewController.swift */,
 			);
@@ -115,6 +123,39 @@
 				8C9ED364273E87D5007D7509 /* MyProfileViewController.swift */,
 			);
 			path = MyProfile;
+			sourceTree = "<group>";
+		};
+		8C9ED368273E8C54007D7509 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8C9ED36A273E8C73007D7509 /* HeaderCollectionCell.swift */,
+				8C9ED36E273EAFFD007D7509 /* ContentCollectionCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		8C9ED369273E8C5C007D7509 /* MainCollection */ = {
+			isa = PBXGroup;
+			children = (
+				8C9ED368273E8C54007D7509 /* Cells */,
+			);
+			path = MainCollection;
+			sourceTree = "<group>";
+		};
+		8C9ED373273EBA86007D7509 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8C9ED374273EBA8D007D7509 /* UI */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8C9ED374273EBA8D007D7509 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				8C9ED375273EBA9C007D7509 /* UICollectionViewExtensions.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,7 +230,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C9ED358273E7A2A007D7509 /* Coordinator.swift in Sources */,
+				8C9ED36F273EAFFD007D7509 /* ContentCollectionCell.swift in Sources */,
+				8C9ED36B273E8C73007D7509 /* HeaderCollectionCell.swift in Sources */,
 				8C9ED35F273E82EA007D7509 /* MainCoordinator.swift in Sources */,
+				8C9ED376273EBA9C007D7509 /* UICollectionViewExtensions.swift in Sources */,
 				8C9ED347273E7917007D7509 /* HomeViewController.swift in Sources */,
 				8C9ED35A273E7A37007D7509 /* RootCoordinator.swift in Sources */,
 				8C9ED343273E7917007D7509 /* AppDelegate.swift in Sources */,

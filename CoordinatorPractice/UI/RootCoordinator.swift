@@ -18,6 +18,13 @@ final class RootCoordinator: Coordinator {
     }
     
     private func createMainViewController() -> UIViewController {
-        return ViewController()
+        let mainCoordinator = MainCoordinator()
+        
+        self.childCoordinator = mainCoordinator
+        let mainVC = mainCoordinator.start()
+        mainVC.view.window?.rootViewController = mainVC
+        mainVC.view.window?.makeKeyAndVisible()
+        
+        return mainVC
     }
 }

@@ -33,6 +33,7 @@ final class MainCoordinator: Coordinator {
     
     private var childCoordinators: [(Coordinator, UITabBarItem)] = [
         (HomeCoordinator(), UITabBarItem(title: "Home", image: UIImage(systemName: "house")!, selectedImage: UIImage(systemName: "house.fill"))),
-        (MyProfileCoordinator(), UITabBarItem(title: "My Profile", image: UIImage(systemName: "person")!, selectedImage: UIImage(systemName: "person.fill")!))
+        (MoviesCoordiantor(), UITabBarItem(title: "Movies", image: UIImage(systemName: "film")!, selectedImage: UIImage(systemName: "film.fill")!)),
+        (MyProfileCoordinator(), UITabBarItem(title: "My Profile", image: UIImage(systemName: "person")!, selectedImage: UIImage(systemName: "person.fill")!)),
     ]
 }

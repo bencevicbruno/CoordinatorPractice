@@ -26,7 +26,7 @@
 		8CB9109227429DC0001E85D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB9109127429DC0001E85D5 /* Main.storyboard */; };
 		8CB910952742A03F001E85D5 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB910942742A03F001E85D5 /* DataService.swift */; };
 		8CB910972742A662001E85D5 /* MyProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB910962742A662001E85D5 /* MyProfileViewModel.swift */; };
-		8CB9109A2742AA41001E85D5 /* TVMazeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB910992742AA41001E85D5 /* TVMazeService.swift */; };
+		8CB9109A2742AA41001E85D5 /* TvMazeServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB910992742AA41001E85D5 /* TvMazeServices.swift */; };
 		8CB9109C2742AAB1001E85D5 /* TVMazeShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9109B2742AAB1001E85D5 /* TVMazeShow.swift */; };
 		8CB9109E2742BA77001E85D5 /* MoviesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9109D2742BA77001E85D5 /* MoviesCoordinator.swift */; };
 		8CB910A12742BAD4001E85D5 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB910A02742BAD4001E85D5 /* MoviesViewController.swift */; };
@@ -56,7 +56,7 @@
 		8CB9109127429DC0001E85D5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8CB910942742A03F001E85D5 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		8CB910962742A662001E85D5 /* MyProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewModel.swift; sourceTree = "<group>"; };
-		8CB910992742AA41001E85D5 /* TVMazeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVMazeService.swift; sourceTree = "<group>"; };
+		8CB910992742AA41001E85D5 /* TvMazeServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvMazeServices.swift; sourceTree = "<group>"; };
 		8CB9109B2742AAB1001E85D5 /* TVMazeShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVMazeShow.swift; sourceTree = "<group>"; };
 		8CB9109D2742BA77001E85D5 /* MoviesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCoordinator.swift; sourceTree = "<group>"; };
 		8CB910A02742BAD4001E85D5 /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
@@ -187,7 +187,7 @@
 		8CB910982742AA10001E85D5 /* TVMaze */ = {
 			isa = PBXGroup;
 			children = (
-				8CB910992742AA41001E85D5 /* TVMazeService.swift */,
+				8CB910992742AA41001E85D5 /* TvMazeServices.swift */,
 				8CB9109B2742AAB1001E85D5 /* TVMazeShow.swift */,
 			);
 			path = TVMaze;
@@ -301,7 +301,7 @@
 				8C9ED367273E8813007D7509 /* MyProfileCoordinator.swift in Sources */,
 				8C9ED362273E84AC007D7509 /* HomeCoordinator.swift in Sources */,
 				8C9ED365273E87D5007D7509 /* MyProfileViewController.swift in Sources */,
-				8CB9109A2742AA41001E85D5 /* TVMazeService.swift in Sources */,
+				8CB9109A2742AA41001E85D5 /* TvMazeServices.swift in Sources */,
 				8CB9109E2742BA77001E85D5 /* MoviesCoordinator.swift in Sources */,
 				8CB9109027429BC0001E85D5 /* HomeTab.swift in Sources */,
 				8C9ED345273E7917007D7509 /* SceneDelegate.swift in Sources */,

@@ -16,6 +16,7 @@ extension UICollectionView {
         
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         
+        collectionView.isPagingEnabled = true
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.collectionViewLayout = layout

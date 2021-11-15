@@ -11,6 +11,12 @@ final class MainCoordinator: Coordinator {
     let navigationController = UINavigationController()
     
     func start() -> UIViewController {
+        let tabBarController = createTabBarController()
+        
+        return tabBarController
+    }
+    
+    private func createTabBarController() -> UITabBarController {
         let tabBarController = UITabBarController()
         
         tabBarController.viewControllers = childCoordinators.map { coordinator, tabBarItem in

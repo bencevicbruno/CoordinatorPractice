@@ -7,13 +7,8 @@
 
 import UIKit
 
-struct HeaderCellData {
-    let image: UIImage
-    let title: String
-}
-
 final class HeaderCollectionCell: UICollectionViewCell {
-    var data: HeaderCellData!
+    var data: HomeTab!
     
     // MARK: - Setup
     func setupConstraints() {

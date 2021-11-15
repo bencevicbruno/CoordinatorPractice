@@ -9,7 +9,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
     // MARK: - Properties
-    private var startingDraggingOffset = CGPoint.zero
+    var viewModel: HomeViewModel!
+    
     private var currentPage = 0 {
         didSet {
             for index in self.headerCollection.indexPathsForVisibleItems {
@@ -18,13 +19,6 @@ class HomeViewController: UIViewController {
             contentCollection.scrollToItem(at: IndexPath(item: self.currentPage, section: 0), at: [.centeredVertically, .centeredHorizontally], animated: true)
         }
     }
-    
-    let tabs = [
-        HeaderCellData(image: UIImage(systemName: "pencil")!, title: "Messages"),
-        HeaderCellData(image: UIImage(systemName: "folder")!, title: "Archive"),
-        HeaderCellData(image: UIImage(systemName: "trash")!, title: "Trash"),
-        HeaderCellData(image: UIImage(systemName: "signature")!, title: "Signatures")
-    ]
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -77,7 +71,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.tabs.count
+        self.viewModel.tabs.count
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -95,7 +89,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HeaderCollectionCell", for: indexPath) as? HeaderCollectionCell ?? HeaderCollectionCell()
             
-            cell.data = tabs[indexPath.item]
+            cell.data = self.viewModel.tabs[indexPath.item]
             cell.setSelected(indexPath.item == 0)
             cell.setupConstraints()
             
@@ -105,7 +99,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == headerCollection {
-            return CGSize(width: collectionView.frame.width / CGFloat(self.tabs.count), height: 60)
+            return CGSize(width: collectionView.frame.width / CGFloat(self.viewModel.tabs.count), height: 60)
         } else {
             return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
         }
@@ -121,28 +115,21 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
 // MARK: - Snap to page
 extension HomeViewController {
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        self.startingDraggingOffset = scrollView.contentOffset
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if decelerate {
+            setPage(scrollView: scrollView)
+        }
     }
     
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        if scrollView != contentCollection { return }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        setPage(scrollView: scrollView)
+    }
+    
+    private func setPage(scrollView: UIScrollView) {
+        let page = Int(scrollView.contentOffset.x / self.view.frame.size.width)
         
-        let cellWidth = collectionView(self.contentCollection, layout: self.contentCollection.collectionViewLayout, sizeForItemAt: IndexPath(item: 0, section: 0)).width
-        
-        let page: CGFloat
-        let proposedPage = scrollView.contentOffset.x / cellWidth
-        let delta: CGFloat = scrollView.contentOffset.x > startingDraggingOffset.x ? 0.9 : 0.1
-        
-        if floor(proposedPage + delta) == floor(proposedPage)
-            && scrollView.contentOffset.x <= targetContentOffset.pointee.x {
-            page = floor(proposedPage)
-        } else {
-            page = floor(proposedPage + 1)
+        if currentPage != page {
+            self.currentPage = page
         }
-        
-        targetContentOffset.pointee = CGPoint(x: cellWidth * page, y: targetContentOffset.pointee.y)
-        
-        self.currentPage = Int(page) > (tabs.count - 1) ? (tabs.count - 1) : Int(page)
     }
 }

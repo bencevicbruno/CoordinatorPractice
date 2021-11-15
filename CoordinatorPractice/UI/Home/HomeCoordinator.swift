@@ -12,6 +12,9 @@ final class HomeCoordinator: Coordinator {
     
     func start() -> UIViewController {
         let viewController = HomeViewController()
+        let viewModel = HomeViewModel()
+        
+        viewController.viewModel = viewModel
         
         navigationController.pushViewController(viewController, animated: true)
         

@@ -23,7 +23,7 @@ final class MoviesViewModel {
             switch result {
             case .success(let shows):
                 self?.shows = shows
-                print(self?.shows)
+                print(self?.shows ?? "empty ")
                 successHandler()
             case .failure(let error):
                 self?.showError?(error)

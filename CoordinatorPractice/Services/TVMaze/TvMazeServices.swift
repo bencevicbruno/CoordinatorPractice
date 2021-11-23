@@ -25,28 +25,17 @@ final class TVMazeService: TVMazeServiceProtocol {
     func searchShows(byKeyword keyword: String, completionHandler: @escaping (Result<[TVMazeShow], Error>) -> Void) {
         let url = "https://api.tvmaze.com/search/shows?q=\(keyword)"
         
-        dataService.fetchData(from: url) { result in
+        dataService.fetchData(from: url) { (result: Result<[TVMazeShowResponse], Error>) in
             switch result {
             case .failure(let error):
                 completionHandler(.failure(error))
             case .success(let data):
-                do {
-                    let response = try JSONDecoder().decode([TVMazeShowResponse].self, from: data)
-                    let shows = response.map { TVMazeShow.init(from: $0) }
-                    
-                    DispatchQueue.main.async {
-                        completionHandler(.success(shows))
-                    }
-                } catch {
-                    DispatchQueue.main.async {
-                        completionHandler(.failure(error))
-                    }
+                let shows = data.map { TVMazeShow.init(from: $0) }
+                
+                DispatchQueue.main.async {
+                    completionHandler(.success(shows))
                 }
-                
-                
             }
         }
     }
-    
-    
 }
